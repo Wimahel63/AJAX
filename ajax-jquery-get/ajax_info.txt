@@ -1,0 +1,19 @@
+dossier ajax
+   dossier ajax_jquery-get
+      -dossier ajax_info.txt
+      -ajax_info.txt
+
+On est lundi, bonjour !!!      
+
+
+Ajax (asynchronous javascript and XML) est une association de langages permettant d'envoyer des requetes http. Il ya tjs deux requetes : aller et retour. (Je demande une requete, c'est l'aller, j'obtiens une reponse, c'est le retour).
+.ajax() est une methode (fonction) jquery qui permet d'envoyer des requetes http avec la methode "get".
+C'est grace à l'objet javascript XMLhttpRequest() qu'il est possible d'envoyer des requetes HTTP.
+
+$.ajax({
+url : "ajax_info.txt",   est l'url de destination
+dataType : "text",   le type de donnees. en cas de succes de la requete, la reponse est stockée dans 'data'.    La methode "ajax()" se charge de tout faire, la reponse de la requete est parsee au format json, sinon on ne pourrait pas vehiculer des donnees en HTTP
+success : function (data){
+    $("#demo").html(data);  on selectionne la div id "demo" dans laquelle je vais stocker mes donnees
+}
+})

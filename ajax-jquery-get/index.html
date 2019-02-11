@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html lang="fr">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>AJAX JQUERY GET</title>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      </head>
+      <body>
+
+        <div class="container">
+
+          <h1 class="display-4 text-center">AJAX JQUERY GET</h1><hr>
+
+
+
+          <div id="demo">AJAX GET</div>
+
+          <button type="button" class="btn btn-primary" id="action">Charger le fichier TXT</button>
+
+        </div><!--fin container-->
+
+
+
+
+        <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+              crossorigin="anonymous"></script>
+              
+
+        <script>
+
+            
+            $(document).ready(function(){
+                 $("#action").click(function(event){
+                    //  alert('tout est ok!');Le click(function(event){}) agit lorsque je fais l'evenement, c-a-d le clic sur mon id action
+
+                   $.ajax({
+                      url: "ajax_info.txt", //je pointe vers le fichier ou je veux envoyer mes donnees
+                      dataType : "text",//je recupere le type de donnees voulues : va chercher du texte
+                      success : function (data) {//la reponse de ma requete est dans data. C'est ma requete retour, qui ramene le resultat de ma requete dans data. Le parametre Data n'est pas une notation absolue, j'aurai pu mettre n'importe quel nom
+                         $("#demo").html(data);//je selectionne demo dans mon html et je lui colle data, donc mes donnees.
+                      }
+                   });  
+                 });
+            });//je selectionne mon dom; ou document.Dans ce doc je selection l'element qui a l'id action. .ready() est une fonction js qui dit que lorsque le doc est chargé j'execute le code ecrit dedans, ici function. Mon action est le click
+        </script>
+      </body>
+      </html>
